@@ -17,8 +17,8 @@ server.use(express.json());
 
 // Making our routes for the server
 
-// server.use('/api/actions', actionRouter);
-// server.use('/api/projects', projectRouter);
+server.use('/api/actions', actionRouter);
+server.use('/api/projects', projectRouter);
 
 // Making sure everything works initially (will require a comment-out of above routes)
 

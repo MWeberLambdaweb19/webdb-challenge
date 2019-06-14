@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
 // READ
 
 router.get('/', (req, res) => {
-    Projects.get()
+    Projects.find()
     .then(project => {
         res.status(200).json(project);
     })
@@ -42,7 +42,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
     const {id} = req.params
-    Projects.get(id)
+    Projects.findById(id)
     .then(project => {
         res.status(200).json(project);
     })

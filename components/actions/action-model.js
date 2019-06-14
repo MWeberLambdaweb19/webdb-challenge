@@ -1,6 +1,9 @@
 // Setting up the db variable
 const db = require('../../data/dbConfig.js');
 
+// Importing the support functions
+const support = require('../support.js');
+
 // Exporting the functions
 module.exports = {
     find,
@@ -12,12 +15,14 @@ module.exports = {
 
 // Find all actions
 function find() {
-    return db('actions');
+    return db('actions').then(action => {
+        return action.map(action => support.actionBody(action));
+    });
 }
 
 // Find an action by its ID
 function findById(id) {
-    return db('actions').where({id}).first();
+    return db('actions').where({id}).first().then(action => support.actionBody(action));
 }
 
 // Add an action to the database
