@@ -1,5 +1,7 @@
+// Setting up the db variable
 const db = require('../../data/dbConfig.js');
 
+// Exporting the functions
 module.exports = {
     find,
     findById,
@@ -8,14 +10,17 @@ module.exports = {
     remove,
 }
 
+// Find all actions
 function find() {
     return db('actions');
 }
 
+// Find an action by its ID
 function findById(id) {
     return db('actions').where({id}).first();
 }
 
+// Add an action to the database
 function add(action) {
     return db('actions')
     .insert(action)
@@ -27,6 +32,7 @@ function add(action) {
     })
 }
 
+// Update an action by its ID
 function update(id, changes) {
     return db('actions')
     .where({id})
@@ -38,6 +44,7 @@ function update(id, changes) {
     })
 }
 
+// Remove an action by its ID
 function remove(id) {
     return db('dish')
     .where({id})
