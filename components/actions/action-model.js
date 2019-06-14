@@ -51,7 +51,7 @@ function update(id, changes) {
 
 // Remove an action by its ID
 function remove(id) {
-    return db('dish')
+    return db('actions')
     .where({id})
     .delete();
 }

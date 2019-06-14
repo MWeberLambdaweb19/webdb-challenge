@@ -55,7 +55,8 @@ function add(project) {
         const [id] = ids;
         return db('projects')
         .where({id})
-        .first();
+        .first()
+        .then(project => support.projectBody(project));
     })
 }
 
@@ -73,7 +74,7 @@ function update(id, changes) {
 
 // Remove a project by its ID
 function remove(id) {
-    return db('dish')
+    return db('projects')
     .where({id})
     .delete();
 }
